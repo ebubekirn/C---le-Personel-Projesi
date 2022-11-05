@@ -1,0 +1,39 @@
+﻿@using PersonelProje.Data
+
+@model List<Ulke>
+
+@{
+    ViewData["Title"] = "Liste";
+}
+
+<h1>Ülke Listesi</h1>
+<div class="row">
+    <div class="col-md-7">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Ad</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                  
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td> @item.Id </td>
+                        <td> @item.UlkeAd </td>
+                        <td> <a class="btn btn-danger" href="/Ulke/Sil/@item.Id">Sil</a> </td>
+                        <td> <a class="btn btn-success" href="/Ulke/Guncel/@item.Id">Güncelle</a> </td>            
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a class="btn btn-primary" href="/Ulke/Ekle" style="float:right">Ekle</a>
+    </div>
+</div>
+
+
+

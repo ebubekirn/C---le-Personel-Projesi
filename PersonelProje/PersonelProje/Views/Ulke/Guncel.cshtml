@@ -1,0 +1,22 @@
+﻿@model PersonelProje.Data.Ulke
+
+@{
+    ViewData["Title"] = "Guncel";
+}
+
+<h1>Güncelleme İşlemi</h1>
+<div class="row"> 
+    <div class="col-md-5">
+        <form method="post">
+            <div>
+                <label>Id</label>
+                <input class="form-control" readonly type="text" value="@Model.Id" name="Id" />
+            </div>
+            <div>
+                <label>Ad</label>
+                <input class="form-control" type="text" value="@Model.UlkeAd" name="UlkeAd" />
+            </div>
+            <input class="btn btn-success" type="submit" value="Güncelle" />
+        </form>
+    </div>
+</div>

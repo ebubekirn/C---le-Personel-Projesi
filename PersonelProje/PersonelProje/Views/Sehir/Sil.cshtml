@@ -1,0 +1,23 @@
+﻿@model PersonelProje.Data.Sehir
+
+@{
+    ViewData["Title"] = "Sil";
+}
+
+<h1>Silme İşlemi</h1>
+<div class="row"> 
+    <div class="col-md-5">
+        <form method="post">
+            <div>
+                <label>Id</label>
+                <input class="form-control" readonly type="text" value="@Model.Id" name="Id" />
+            </div>
+            <div>
+                <label>Ad</label>
+                <input class="form-control" type="text" value="@Model.SehirAd" name="SehirAd" />
+            </div>
+            <br />
+            <input class="btn btn-danger" type="submit" value="Sil" style="float:right"/>
+        </form>
+    </div>
+</div>

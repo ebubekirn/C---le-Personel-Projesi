@@ -1,0 +1,77 @@
+﻿@model PersonelProje.Models.PersonelModel
+
+@{
+    ViewData["Title"] = "Sil";
+}
+
+<h1>@Model.Baslik</h1>
+
+<h4>Personel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label for="Personel.Id" class="control-label">Id</label>
+                <input value ="@Model.Personel.Id" readonly class="form-control" name="Personel.Id" />
+            </div>
+            <div class="form-group">
+                <label for="Personel.Ad" class="control-label">Ad</label>
+                <input value="@Model.Personel.Ad" name="Personel.Ad" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="Personel.Soyad" class="control-label">Soyad</label>
+                <input value="@Model.Personel.Soyad" name="Personel.Soyad" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="Personel.maas" class="control-label">Maaş</label>
+                <input value="@Model.Personel.maas" name="Personel.maas" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Personel.SehirId">Şehir Seç:</label>
+                <select class="form-control" name="Personel.SehirId" id="Id">
+                    @foreach (var item in Model.Sehirler)
+                    {
+                        if (@Model.Personel.SehirId != item.Id)
+                        {
+                            <option value="@item.Id">@item.SehirAd</option>
+                        }
+                        else
+                        {
+                            <option selected value="@item.Id">@item.SehirAd</option>
+                        }           
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Personel.UlkeId">Ülke Seç:</label>
+                <select class="form-control" name="Personel.UlkeId" id="Id">
+                    @foreach (var item in Model.Ulkeler)
+                    {
+                        if (@Model.Personel.UlkeId != item.Id)
+                        {
+                            <option value="@item.Id">@item.UlkeAd</option>
+                        }
+                        else
+                        {
+                            <option selected value="@item.Id">@item.UlkeAd</option>
+                        }
+                    }
+                </select>
+            </div>
+            <br />
+            <div class="form-group" style="float:right">
+                <input type="submit" value="@Model.BtnText" class="@Model.BtnClass" />
+                <a class="btn btn-warning" href="/Personel/Liste">İptal</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@*
+<div>
+    <a asp-action="Liste">Listeye Geri Dön</a>
+</div>
+*@

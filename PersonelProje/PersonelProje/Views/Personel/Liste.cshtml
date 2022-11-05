@@ -1,0 +1,61 @@
+﻿@model IEnumerable<PersonelProje.DTO.PersonelDTO>
+
+@{
+    ViewData["Title"] = "Liste";
+}
+
+<h1>Liste</h1>
+
+<p>
+    <a asp-action="Ekle">Yeni Giriş</a>
+</p>
+<table class="table" border="1">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdSoyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.maas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SehirAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UlkeAd)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdSoyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.maas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SehirAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UlkeAd)
+            </td>
+            <td>
+                @*@Html.ActionLink("Güncelle", "Guncel", new { Id=item.Id }) *@
+                <a class="btn btn-success" href="/Personel/Guncel/@item.Id">Güncelle</a> @* Bu üstteki satırın güncel versiyonu*@
+                @*@Html.ActionLink("Sil", "Sil", new { Id=item.Id  })*@
+                <a class="btn btn-danger" href="/Personel/Sil/@item.Id">Sil</a> 
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
